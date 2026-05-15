@@ -8,10 +8,13 @@ export function HashScrollRestorer() {
       const id = window.location.hash.slice(1);
       if (!id) return;
       const target = document.getElementById(id);
-      target?.scrollIntoView({ block: "start" });
+      if (!target) return;
+      const top = target.getBoundingClientRect().top + window.scrollY - 144;
+      window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
     };
 
-    const timers = [120, 500, 1200].map((delay) => window.setTimeout(restore, delay));
+    window.requestAnimationFrame(restore);
+    const timers = [0, 80, 200, 500, 1200, 2600, 4800].map((delay) => window.setTimeout(restore, delay));
     window.addEventListener("hashchange", restore);
     window.addEventListener("load", restore);
 

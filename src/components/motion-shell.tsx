@@ -45,8 +45,7 @@ export function Stagger({
     <m.div
       className={className}
       initial={reduce ? false : "hidden"}
-      whileInView={reduce ? undefined : "show"}
-      viewport={{ once: true, margin: "-80px" }}
+      animate={reduce ? undefined : "show"}
       variants={{
         hidden: {},
         show: { transition: { staggerChildren: 0.07 } },

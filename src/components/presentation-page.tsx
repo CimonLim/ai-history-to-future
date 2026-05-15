@@ -335,29 +335,32 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
 function SectionView({ section, index }: { section: Section; index: number }) {
   const Icon = sectionIcons[index] ?? Network;
   return (
-    <section className="story-section" id={section.id}>
-      <div className="section-stage">
-        <div className="visual-card">
-          <Image src={imageSrc(section.image)} alt="" fill sizes="(max-width: 900px) 100vw, 420px" priority={index < 2} />
-          <span>{String(index + 1).padStart(2, "0")}</span>
+    <>
+      <span className="section-anchor" id={section.id} aria-hidden="true" />
+      <section className="story-section" id={`section-${section.id}`}>
+        <div className="section-stage">
+          <div className="visual-card">
+            <Image src={imageSrc(section.image)} alt="" fill sizes="(max-width: 900px) 100vw, 420px" priority={index < 2} />
+            <span>{String(index + 1).padStart(2, "0")}</span>
+          </div>
+          <div className="section-head">
+            <p className="eyebrow">{section.label}</p>
+            <h2>{section.title}</h2>
+            <p>{section.lead}</p>
+          </div>
+          <aside className="takeaway-card">
+            <Icon size={24} />
+            <strong>이 장의 결론</strong>
+            <p>{sectionTakeaways[section.id]}</p>
+          </aside>
         </div>
-        <div className="section-head">
-          <p className="eyebrow">{section.label}</p>
-          <h2>{section.title}</h2>
-          <p>{section.lead}</p>
+        <div className="section-body">
+          {section.blocks.map((block, blockIndex) => (
+            <BlockRenderer block={block} key={`${section.id}-${block.type}-${blockIndex}`} />
+          ))}
         </div>
-        <aside className="takeaway-card">
-          <Icon size={24} />
-          <strong>이 장의 결론</strong>
-          <p>{sectionTakeaways[section.id]}</p>
-        </aside>
-      </div>
-      <div className="section-body">
-        {section.blocks.map((block, blockIndex) => (
-          <BlockRenderer block={block} key={`${section.id}-${block.type}-${blockIndex}`} />
-        ))}
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
