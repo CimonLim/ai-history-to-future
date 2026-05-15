@@ -1,0 +1,20 @@
+project_name = "ai-future-presentation"
+environment  = "prod"
+
+# Prefer environment variables for tokens:
+# $env:TF_VAR_vercel_api_token = "..."
+vercel_api_token = "replace-with-vercel-api-token"
+
+# Optional. Use a Vercel team ID/slug for team deployment, or null for personal.
+vercel_team_id = null
+
+# Optional. If set, Vercel connects the project to GitHub and deploys on push.
+# Example: "owner/repository"
+github_repository = null
+
+# Use null when this app is committed at the repository root.
+root_directory = null
+
+notion_url = "https://www.notion.so/361664d8d92c815d8eb0ed83d3ff71b4"
+
+vercel_environment_targets = ["production", "preview"]
