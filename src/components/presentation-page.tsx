@@ -378,7 +378,7 @@ export function PresentationPage() {
           <Image src={imageSrc(typedHero.image)} alt="" fill sizes="100vw" priority />
         </div>
 
-        <Reveal className="hero-content">
+        <div className="hero-content">
           <p className="eyebrow">{typedHero.kicker}</p>
           <h1>{typedHero.title}</h1>
           <p>{typedHero.subtitle}</p>
@@ -390,7 +390,7 @@ export function PresentationPage() {
               세부 자료 <ArrowRight size={18} />
             </a>
           </div>
-        </Reveal>
+        </div>
       </header>
 
       <section className="brief-section" aria-labelledby="brief-title">
