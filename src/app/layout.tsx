@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { HashScrollRestorer } from "@/components/hash-scroll-restorer";
 import "./globals.css";
@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     description: "일자리, 로봇, AI 에이전트, 데이터 소유권을 한 번에 이해하기",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
