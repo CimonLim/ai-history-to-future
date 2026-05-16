@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { hero, notionUrl, route, sections, sources } from "@/data/source-data";
 import { chapters } from "@/data/source-data";
+import { AiUseNote } from "@/components/ai-use-note";
 import { MotionShell, Reveal, Stagger, StaggerItem } from "@/components/motion-shell";
 
 type Pair = [string, string];
@@ -63,6 +64,7 @@ const typedChapters = chapters as {
 }[];
 
 const navItems = [
+  ["ai-use", "작성"],
   ["problem", "문제"],
   ["history", "역사"],
   ["changed", "변화"],
@@ -386,8 +388,8 @@ export function PresentationPage() {
           <h1>{typedHero.title}</h1>
           <p>{typedHero.subtitle}</p>
           <div className="hero-actions">
-            <a href="#problem">
-              발표 시작 <ArrowDown size={18} />
+            <a href="#ai-use">
+              먼저 작성 <ArrowDown size={18} />
             </a>
             <a href={notionUrl} target="_blank" rel="noreferrer">
               세부 자료 <ArrowRight size={18} />
@@ -395,6 +397,8 @@ export function PresentationPage() {
           </div>
         </div>
       </header>
+
+      <AiUseNote />
 
       <section className="brief-section" aria-labelledby="brief-title">
         <Reveal className="brief-copy">
