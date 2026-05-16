@@ -69,8 +69,8 @@ export function AiUseNote() {
   }, [answers, loaded]);
 
   return (
-    <section className="ai-use-section" id="ai-use" aria-labelledby="ai-use-title">
-      <div className="ai-use-head">
+    <section className="ai-use-section" aria-labelledby="ai-use-title">
+      <div className="ai-use-head" id="ai-use">
         <div>
           <p className="eyebrow">시작 질문</p>
           <h2 id="ai-use-title">지금 나는 AI를 어떻게 쓰고 있나?</h2>

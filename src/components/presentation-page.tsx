@@ -401,21 +401,20 @@ export function PresentationPage() {
       <AiUseNote />
 
       <section className="brief-section" aria-labelledby="brief-title">
-        <Reveal className="brief-copy">
+        <div className="brief-copy">
           <p className="eyebrow">발표 흐름</p>
           <h2 id="brief-title">한 가지 질문으로 끝까지 갑니다</h2>
           <p>
             AI가 사람 대신 일하게 될 때, 돈은 어디에서 생기고 누구에게 모일까요. 이 질문을 따라가면 일자리,
             산업, 위험, 권력 구조, 개인의 대응까지 연결됩니다.
           </p>
-        </Reveal>
-        <Stagger className="route-grid">
+        </div>
+        <div className="route-grid">
           {typedRoute.map(([title, body], index) => {
             const Icon = sectionIcons[index] ?? Network;
             const chapter = typedChapters[index];
             return (
-              <StaggerItem key={title}>
-              <article>
+              <article key={title}>
                 <Icon size={22} />
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <strong>{title}</strong>
@@ -426,10 +425,9 @@ export function PresentationPage() {
                   </Link>
                 ) : null}
               </article>
-              </StaggerItem>
             );
           })}
-        </Stagger>
+        </div>
       </section>
 
       <section className="chapter-index" aria-labelledby="chapter-index-title">
